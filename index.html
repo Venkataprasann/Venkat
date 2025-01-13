@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games Winners Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <h3 class="tri-color-text">Ponduru</h3>
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active"><a href="#dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="#games"><i class="fas fa-gamepad"></i> Games</a></li>
+                    <li><a href="#hall-of-fame"><i class="fas fa-trophy"></i> Hall of Fame</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Dashboard Section -->
+            <div id="dashboard" class="content-section active">
+                <h2 class="section-heading tri-color-text">Dashboard</h2>
+                <h2 class="mb-4">Game Highlights</h2>
+                <div class="video-highlights-grid">
+                    <!-- Video cards will be dynamically added here -->
+                </div>
+            </div>
+
+            <!-- Games Section -->
+            <div id="games" class="content-section">
+                <h2 class="section-heading tri-color-text">Games</h2>
+                <h2 class="mb-4">Games List</h2>
+                <div class="games-grid">
+                    <!-- Games cards will be dynamically added here -->
+                </div>
+            </div>
+
+            <!-- Hall of Fame Section -->
+            <div id="hall-of-fame" class="content-section">
+                <h2 class="section-heading tri-color-text">Hall of Fame</h2>
+                <h2 class="mb-4">Hall of Fame</h2>
+                <div class="fame-grid">
+                    <!-- Profile cards will be added here dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/your-kit-code.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html> 
