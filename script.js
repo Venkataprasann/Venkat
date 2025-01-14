@@ -3,16 +3,14 @@ const videoHighlightsData = [
     {
         title: "Shuttle Seniors Finale",
         description: "Exciting last Shot finishing",
-        videoUrl: "village.mp4",
-        thumbnail: "images/cricket_thumb.jpg",
+        videoUrl: "shuttle.mp4",
         date: "2024-03-15",
         sport: "Shuttle"
     },
     {
         title: "kabaddi Tournment",
         description: "Best moments from the tournament finals",
-        videoUrl: "kabaddi.mp4",
-        thumbnail: "images/basketball_thumb.jpg",
+        videoUrl: "kabaddi2.mp4",
         date: "2024-03-10",
         sport: "Kabaddi"
     },
@@ -20,7 +18,6 @@ const videoHighlightsData = [
         title: "cricket Tournment",
         description: "Record-breaking performances in freestyle",
         videoUrl: "cricket.mp4",
-        thumbnail: "images/swimming_thumb.jpg",
         date: "2024-03-05",
         sport: "Cricket"
     },
@@ -28,7 +25,6 @@ const videoHighlightsData = [
         title: "Table Tennis Finals",
         description: "Intense rallies from the championship match",
         videoUrl: "videos/tabletennis_finals.mp4",
-        thumbnail: "images/tabletennis_thumb.jpg",
         date: "2024-03-01",
         sport: "Table Tennis"
     },
@@ -36,7 +32,6 @@ const videoHighlightsData = [
         title: "Athletics Meet Highlights",
         description: "Best moments from track and field events",
         videoUrl: "videos/athletics_highlights.mp4",
-        thumbnail: "images/athletics_thumb.jpg",
         date: "2024-02-28",
         sport: "Athletics"
     }
@@ -177,8 +172,8 @@ const hallOfFameData = [
     },
     {
         id: 3,
-        name: "Chandu",
-        photo: "chandu.jpg",
+        name: "Avinash Vejandla",
+        photo: "Vejandla Avinash.jpg",
         achievements: {
             totalGames: 12,
             gamesWon: 8,
@@ -191,8 +186,8 @@ const hallOfFameData = [
     },
     {
         id: 4,
-        name: "Nitheesh",
-        photo: "nitheesh.jpg",
+        name: "Rakesh",
+        photo: "rakesh.jpg",
         achievements: {
             totalGames: 9,
             gamesWon: 6,
@@ -205,8 +200,8 @@ const hallOfFameData = [
     },
     {
         id: 5,
-        name: "Rajesh",
-        photo: "rajesh.jpg",
+        name: "Satwik",
+        photo: "satwik.jpg",
         achievements: {
             totalGames: 11,
             gamesWon: 7,
@@ -226,9 +221,10 @@ function createVideoCard(video) {
             <div class="video-container">
                 <video 
                     controls 
-                    poster="${video.thumbnail}"
-                    preload="none"
+                    preload="metadata"
                     class="video-player"
+                    poster=""
+                    onloadeddata="generateThumbnail(this)"
                 >
                     <source src="${video.videoUrl}" type="video/mp4">
                     Your browser does not support the video tag.
@@ -243,6 +239,43 @@ function createVideoCard(video) {
             </div>
         </div>
     `;
+}
+
+// Add function to generate thumbnails
+function generateThumbnail(videoElement) {
+    // Create a canvas element
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    
+    // Set canvas size to video size
+    canvas.width = videoElement.videoWidth;
+    canvas.height = videoElement.videoHeight;
+    
+    // Seek to 1 second or 25% of the video
+    videoElement.currentTime = Math.min(1, videoElement.duration * 0.25);
+    
+    // Draw the video frame on the canvas
+    videoElement.addEventListener('seeked', function() {
+        // Draw the current frame
+        context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+        
+        // Convert canvas to data URL and set as poster
+        try {
+            const thumbnailUrl = canvas.toDataURL('image/jpeg');
+            videoElement.setAttribute('poster', thumbnailUrl);
+            handleThumbnailLoad(videoElement);
+        } catch (e) {
+            console.error('Error generating thumbnail:', e);
+        }
+    }, { once: true }); // Remove listener after first execution
+}
+
+// Add this to handle thumbnail loading state
+function handleThumbnailLoad(videoElement) {
+    const container = videoElement.closest('.video-container');
+    if (container) {
+        container.classList.add('thumbnail-loaded');
+    }
 }
 
 // Function to create game cards
