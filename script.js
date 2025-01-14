@@ -183,34 +183,6 @@ const hallOfFameData = [
                 { game: "Soccer League", status: "participated", date: "2024-01-15" }
             ]
         }
-    },
-    {
-        id: 4,
-        name: "Rakesh",
-        photo: "rakesh.jpg",
-        achievements: {
-            totalGames: 9,
-            gamesWon: 6,
-            records: [
-                { game: "Tennis Championship", status: "won", date: "2024-03-25" },
-                { game: "Badminton Tournament", status: "won", date: "2024-02-28" },
-                { game: "Table Tennis", status: "participated", date: "2024-01-20" }
-            ]
-        }
-    },
-    {
-        id: 5,
-        name: "Satwik",
-        photo: "satwik.jpg",
-        achievements: {
-            totalGames: 11,
-            gamesWon: 7,
-            records: [
-                { game: "Cricket Tournament", status: "won", date: "2024-03-30" },
-                { game: "Baseball Championship", status: "won", date: "2024-02-22" },
-                { game: "Hockey League", status: "participated", date: "2024-01-25" }
-            ]
-        }
     }
 ];
 
