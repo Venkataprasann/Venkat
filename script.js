@@ -172,8 +172,8 @@ const hallOfFameData = [
     },
     {
         id: 3,
-        name: "Avinash Vejandla",
-        photo: "Vejandla Avinash.jpg",
+        name: "Chandu",
+        photo: "chandu.jpg",
         achievements: {
             totalGames: 12,
             gamesWon: 8,

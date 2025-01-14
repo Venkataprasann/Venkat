@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #FFD700;
-    --secondary-color: #C0A030;
+    --primary-color: #FF69B4;
+    --secondary-color: #FF1493;
     --background-color: #121212;
     --text-color: #ffffff;
     --dark-surface: #1E1E1E;
@@ -414,7 +414,7 @@ body {
     display: flex;
     justify-content: space-around;
     padding: 10px;
-    background: rgba(255, 215, 0, 0.1);
+    background: rgba(255, 105, 180, 0.1);
     border-radius: 8px;
     margin-bottom: 15px;
 }
@@ -451,7 +451,7 @@ body {
 }
 
 .game-record.participated {
-    border-left: 4px solid #C0A030;
+    border-left: 4px solid var(--secondary-color);
 }
 
 .game-record .date {
@@ -676,9 +676,17 @@ body {
     margin-bottom: 30px;
     font-size: 2.2rem;
     position: relative;
+    text-shadow: none;
+    color: var(--primary-color);
+    font-weight: 600;
 }
 
-/* Update the underline to be solid gold */
+/* Remove the glow effect on hover */
+.section-heading.tri-color-text:hover {
+    text-shadow: none;
+}
+
+/* Update the underline to be more crisp */
 .section-heading.tri-color-text::after {
     content: '';
     position: absolute;
@@ -688,62 +696,12 @@ body {
     height: 3px;
     background: var(--primary-color);
     border-radius: 2px;
-    box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
+    box-shadow: none;
 }
 
-/* Update logo text */
-.logo .tri-color-text {
-    font-size: 1.8rem;
-    text-align: center;
-    width: 100%;
-    margin: 0;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-}
-
-/* Add a subtle glow effect on hover */
-.tri-color-text:hover {
-    text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-    transition: text-shadow 0.3s ease;
-}
-
-/* Style specifically for the sidebar logo */
-.logo .tri-color-text {
-    font-size: 1.8rem;
-    text-align: center;
-    width: 100%;
-    margin: 0;
-    text-shadow: 0 0 10px rgba(255,255,255,0.1);
-}
-
-/* Style for section headings */
+/* Remove any additional text shadows */
 .section-heading.tri-color-text {
-    margin-bottom: 30px;
-    font-size: 2.2rem;
-    position: relative;
-}
-
-.section-heading.tri-color-text::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100px;
-    height: 3px;
-    background: linear-gradient(
-        to right,
-        #FFD700 33%,
-        #ffffff 33%,
-        #ffffff 66%,
-        #C0A030 66%
-    );
-    border-radius: 2px;
-}
-
-/* Add text shadow for better visibility */
-.section-heading.tri-color-text {
-    text-shadow: 
-        1px 1px 2px rgba(0,0,0,0.1),
-        -1px -1px 2px rgba(255,255,255,0.5);
+    text-shadow: none !important;
 }
 
 /* Responsive adjustments */
